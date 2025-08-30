@@ -26,7 +26,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.129.0' # 您可以指定任何新版 Hugo
+          hugo-version: '0.149.0' # 您可以指定任何新版 Hugo
           extended: true
       - name: Build
         run: hugo
