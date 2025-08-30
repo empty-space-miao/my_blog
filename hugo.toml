@@ -33,7 +33,7 @@ defaultContentLanguage = "zh"
     languageName = "English"
     languageCode = "en-us"
     weight = 2 # 权重
-    title = "Singularity Notes" # 英文网站的标题
+    title = "The Echo Collector" # 英文网站的标题
     [languages.en.params]
       description = "A blog about Singularity Theory and Cryptography"
     [languages.en.menu] # 英文网站的菜单
