@@ -14,7 +14,7 @@ permissions:
 
 # 任务定义
 jobs:
-  # 构建任务 (此部分保持不变)
+  # 构建任务
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,23 +26,25 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.149.0' # 您可以指定任何新版 Hugo
+          hugo-version: 'latest' # 使用最新的 Hugo 版本
           extended: true
       - name: Build
         run: hugo
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4 # <-- 已修正
         with:
+          name: github-pages
           path: ./public
 
-  # 部署任务 (此部分已完全更新)
+  # 部署任务
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Download artifact
-        uses: actions/download-pages-artifact@v3
+        uses: actions/download-artifact@v4 # <-- 已修正
         with:
+          name: github-pages
           path: ./public
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -51,5 +53,4 @@ jobs:
           external_repository: empty-space-miao/empty-space-miao.github.io
           publish_branch: main
           publish_dir: ./public
-          # 可选: 自定义提交信息
           commit_message: ${{ github.event.head_commit.message }}
