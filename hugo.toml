@@ -1,0 +1,61 @@
+# 基础配置
+baseURL = "https://<empty-space-miao>.github.io/"
+theme = "PaperMod"
+# 开启 paginate 功能，否则首页可能不显示文章列表
+
+
+# 将中文设置为默认语言
+defaultContentLanguage = "zh"
+
+# 多语言配置块
+[languages]
+  # 中文配置
+  [languages.zh]
+    languageName = "简体中文"
+    languageCode = "zh-cn"
+    weight = 1 # 权重，用于排序，数字越小越靠前
+    title = "奇点笔记" # 中文网站的标题
+    [languages.zh.params] # 中文网站的特定参数
+      description = "一个关于奇点理论与密码学的博客"
+    [languages.zh.menu] # 中文网站的菜单
+      [[languages.zh.menu.main]]
+        identifier = "archives"
+        name = "归档"
+        url = "/archives/"
+        weight = 10
+      [[languages.zh.menu.main]]
+        identifier = "tags"
+        name = "标签"
+        url = "/tags/"
+        weight = 20
+
+  # 英文配置
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-us"
+    weight = 2 # 权重
+    title = "Singularity Notes" # 英文网站的标题
+    [languages.en.params]
+      description = "A blog about Singularity Theory and Cryptography"
+    [languages.en.menu] # 英文网站的菜单
+      [[languages.en.menu.main]]
+        identifier = "archives"
+        name = "Archives"
+        url = "/archives/"
+        weight = 10
+      [[languages.en.menu.main]]
+        identifier = "tags"
+        name = "Tags"
+        url = "/tags/"
+        weight = 20
+# 新的、正确的写法
+[pagination]
+  pagerSize = 5
+# ==================================
+# hugo.toml 文件末尾
+# ==================================
+
+# 添加这个 [params] 配置块来启用数学公式支持
+[params]
+  [params.math]
+    enable = true # 开启数学公式渲染 (使用 KaTeX)
